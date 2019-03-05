@@ -1,5 +1,5 @@
 {% set name = "nose_xunitmp" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f3bcc8bc1f0e7b8a307d3f5fa82b7982e53cbb3f1457429d12b53543f430e382
+  sha256: c2df72f4760751d30153d473822aabf1a7c3d462f664aa7f7fdb8dc626dc7c40
 
 build:
   number: 0

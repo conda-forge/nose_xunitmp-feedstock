@@ -6,24 +6,26 @@ package:
   version: "{{ version }}"
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: c2df72f4760751d30153d473822aabf1a7c3d462f664aa7f7fdb8dc626dc7c40
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
 
 requirements:
   host:
-  - pip
-  - python
+    - pip
+    - python {{ python_min }}
   run:
-  - nose
-  - python
-  - setuptools
+    - nose
+    - python >={{ python_min }}
+    - setuptools
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - nose_xunitmp
 
@@ -37,4 +39,4 @@ about:
 
 extra:
   recipe-maintainers:
-  - andreyz4k
+    - andreyz4k
